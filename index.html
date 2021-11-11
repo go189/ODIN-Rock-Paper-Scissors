@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+    <script type="text/javascript">
+
+        function getPlayerInput() {
+            while(true) {
+                let input = prompt("Enter Rock/Paper/Scissors:");
+                if(input.toLowerCase().trim() == "rock" || input.toLowerCase().trim() == "paper" || input.toLowerCase().trim() == "scissors") {
+                    return input.toLowerCase().trim();
+                }
+                console.log("Invalid Input");
+            }
+        }
+
+        function getComputerInput() {
+            let num = Math.floor(Math.random() * 3) + 1;
+            switch(num) {
+                case 1:
+                    return "rock";
+                case 2:
+                    return "paper";
+                default:
+                    return "scissors";
+            }
+        }
+
+        function roundResult(playerInput, computerInput) {
+            if((playerInput == "rock" && computerInput == "rock") || (playerInput == "paper" && computerInput == "paper") || (playerInput == "scissors" && computerInput == "scissors")) {
+                return `Tie: ${playerInput} & ${computerInput}\n\n`;
+            } else if((playerInput == "rock" && computerInput == "scissors") || (playerInput == "paper" && computerInput == "rock") || (playerInput == "scissors" && computerInput == "paper")) {
+                playerPoints++;
+                return `Player Wins: ${playerInput} beats ${computerInput}\n\n`;
+            } 
+            computerPoints++;
+            return `Computer Wins: ${computerInput} beats ${playerInput}\n\n`;
+        }
+
+        let playerPoints = computerPoints = 0;
+
+        function game() {
+            let again;
+            do {
+                console.log(roundResult(getPlayerInput(), getComputerInput()));
+                console.log(`Player Points: ${playerPoints}\nComputer Points: ${computerPoints}\n\n`)
+                again = prompt("Play again? y/n\n\n");
+            } while(again != 'n');
+
+            if (playerPoints > computerPoints) {
+                console.log("Player wins the match");
+            } else if (playerPoints < computerPoints) {
+                console.log("Computer wins the match");
+            } else {
+                console.log("Tie match");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
