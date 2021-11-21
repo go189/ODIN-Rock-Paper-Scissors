@@ -1,0 +1,26 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreboard {
+    display: flex;
+    height: 50px;
+    width: 400px;
+    padding: 10px;
+}
+
+#resultArea {
+    height: 200px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#vsLabel {
+    margin: 20px;
+}
